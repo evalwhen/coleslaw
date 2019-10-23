@@ -26,7 +26,7 @@
       {foreach $link in $config.sitenav}
       <li>
         {if $link.relative}
-          <a href="{$config.domain}/{$link.url}"><i class="fa fa-user"     aria-hidden="true"></i><br>{$link.name}</a>
+          <a href="{$config.domain}/{$link.url}"><i class="fa fa-code"     aria-hidden="true"></i><br>{$link.name}</a>
         {else}
           <a href="{$link.url}"><i class="fa fa-user"     aria-hidden="true"></i><br>{$link.name}</a>
         {/if}
