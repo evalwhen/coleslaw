@@ -1,27 +1,30 @@
 {namespace coleslaw.theme.hyde}
 
 {template post}
-<div class="article-meta">{\n}
-  <h1 class="title">{$post.title}</h1>{\n}
-  <div class="tags">{\n}
-    {if $post.tags}
+<article class="post">{\n}
+  <header>{\n}
+    <h1 class="pagetitle">{$post.title}</h1>{\n}
+    <div class="tags">{\n}
+      {if $post.tags}
       Tagged as {foreach $tag in $post.tags}
-        <a href="{$config.domain}/{$tag.url}">{$tag.name}</a>{nil}
-          {if not isLast($tag)},{sp}{/if}
+      <a href="{$config.domain}/{$tag.url}">{$tag.name}</a>{nil}
+      {if not isLast($tag)},{sp}{/if}
       {/foreach}
-    {/if}
-  </div>{\n}
-  <div class="date">{\n}
-    {if $post.date}
-      Written on {$post.date}
-    {/if}
-  </div>{\n}
-</div>{\n}
-<div class="article-content">{\n}
+      {/if}
+    </div>
+    <div class="date">{\n}
+      Written on <time>{$post.date}</time>{\n}
+    </div>{\n}
+</time></header>{\n}
+<div class="content">{\n}
   {$post.text |noAutoescape}
 </div>{\n}
-<div class="relative-nav">{\n}
-  {if $prev} <a href="{$config.domain}/{$prev.url}">Previous</a><br> {/if}{\n}
-  {if $next} <a href="{$config.domain}/{$next.url}">Next</a><br> {/if}{\n}
-</div>{\n}
+</article>{\n}
+<nav>{\n}
+  <div class="relative-nav">{\n}
+    {if $prev} <a href="{$config.domain}/{$prev.url}">Previous</a><br> {/if}{\n}
+    {if $next} <a href="{$config.domain}/{$next.url}">Next</a><br> {/if}{\n}
+    <br>{\n}
+  </div>{\n}
+</nav>{\n}
 {/template}
